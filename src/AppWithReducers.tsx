@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useCallback, useReducer, useState } from "react";
 import "./App.css";
 import { TaskType, Todolist } from "./Todolist";
 import { v1 } from "uuid";
@@ -61,39 +61,46 @@ function AppWithReducers() {
   });
 
   function removeTask(id: string, todolistId: string) {
-    dispatchToTasks(removeTaskAC(id, todolistId));
+    const action = removeTaskAC(id, todolistId);
+    dispatchToTasks(action);
   }
 
   function addTask(title: string, todolistId: string) {
-    dispatchToTasks(addTaskAC(title, todolistId));
+    const action = addTaskAC(title, todolistId);
+    dispatchToTasks(action);
   }
 
   function changeStatus(id: string, isDone: boolean, todolistId: string) {
-    dispatchToTasks(changeTaskStatusAC(id, isDone, todolistId));
+    const action = changeTaskStatusAC(id, isDone, todolistId);
+    dispatchToTasks(action);
   }
 
   function changeTaskTitle(id: string, newTitle: string, todolistId: string) {
-    dispatchToTasks(changeTaskTitleAC(id, newTitle, todolistId));
+    const action = changeTaskTitleAC(id, newTitle, todolistId);
+    dispatchToTasks(action);
   }
 
   function changeFilter(value: FilterValuesType, todolistId: string) {
-    dispatchToTodolists(changeTodolistFilterAC(todolistId, value));
+    const action = changeTodolistFilterAC(todolistId, value);
+    dispatchToTodolists(action);
   }
 
   function removeTodolist(id: string) {
-    dispatchToTodolists(removeTodolistAC(id));
-    dispatchToTasks(removeTodolistAC(id));
+    const action = removeTodolistAC(id);
+    dispatchToTasks(action);
+    dispatchToTodolists(action);
   }
 
   function changeTodolistTitle(id: string, title: string) {
-    dispatchToTodolists(changeTodolistTitleAC(id, title));
+    const action = changeTodolistTitleAC(id, title);
+    dispatchToTodolists(action);
   }
 
-  function addTodolist(title: string) {
-    let action = addTodolistAC(title);
-    dispatchToTodolists(action);
+  const addTodolist = useCallback((title: string) => {
+    const action = addTodolistAC(title);
     dispatchToTasks(action);
-  }
+    dispatchToTodolists(action);
+  }, []);
 
   return (
     <div className="App">
