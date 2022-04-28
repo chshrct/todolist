@@ -3,7 +3,7 @@ import { Delete } from "@material-ui/icons";
 import React, { ChangeEvent, FC, useCallback } from "react";
 import { EditableSpan } from "./EditableSpan";
 
-type PropsType = {
+export type TaskProps = {
   todolistId: string;
   taskId: string;
   isDone: boolean;
@@ -21,7 +21,7 @@ type PropsType = {
   ) => void;
 };
 
-const Task: FC<PropsType> = (props) => {
+const Task: FC<TaskProps> = (props) => {
   const {
     todolistId,
     taskId,
