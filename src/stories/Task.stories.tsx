@@ -1,7 +1,7 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
-import Task, { TaskProps } from "../Task";
+import { Task, TaskPropsType } from "../Task";
 
 export default {
   title: "Todolist/Task",
@@ -18,7 +18,7 @@ const baseArgs = {
   removeTask: removeTaskCallback,
 };
 
-const Template: Story<TaskProps> = (args) => <Task {...args} />;
+const Template: Story<TaskPropsType> = (args) => <Task {...args} />;
 
 export const TaskIsDoneExample = Template.bind({});
 TaskIsDoneExample.args = {
