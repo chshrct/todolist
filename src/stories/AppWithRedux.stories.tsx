@@ -1,7 +1,5 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
-import { action } from "@storybook/addon-actions";
-import { EditableSpan, EditableSpanPropsType } from "../EditableSpan";
 import AppWithRedux from "../AppWithRedux";
 import { ReduxStoreProviderDecorator } from "./decorators/ReduxStoreProviderDecorator";
 
