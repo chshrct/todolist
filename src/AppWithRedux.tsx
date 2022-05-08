@@ -38,8 +38,8 @@ function AppWithRedux() {
     }, []);
 
     const addTask = useCallback(function (title: string, todolistId: string) {
-        const action = addTaskAC(title, todolistId);
-        dispatch(action);
+        // const action = addTaskAC(title, todolistId);
+        // dispatch(action);
     }, []);
 
     const changeStatus = useCallback(function (id: string, status: TaskStatuses, todolistId: string) {
@@ -68,8 +68,8 @@ function AppWithRedux() {
     }, []);
 
     const addTodolist = useCallback((title: string) => {
-        const action = addTodolistAC(title);
-        dispatch(action);
+        // const action = addTodolistAC(title);
+        // dispatch(action);
     }, [dispatch]);
 
     return (
