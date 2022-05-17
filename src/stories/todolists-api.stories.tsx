@@ -1,16 +1,8 @@
 import React, {useEffect, useState} from 'react'
-import axios from 'axios'
 import {todolistsAPI} from '../api/todolists-api'
 
 export default {
     title: 'API'
-}
-
-const settings = {
-    withCredentials: true,
-    headers: {
-        'API-KEY': '1cdd9f77-c60e-4af5-b194-659e4ebd5d41'
-    }
 }
 
 export const GetTodolists = () => {
@@ -148,11 +140,9 @@ export const CreateTask = () => {
 export const UpdateTask = () => {
     const [state, setState] = useState<any>(null)
     const [title, setTitle] = useState<string>('title 1')
-    const [description, setDescription] = useState<string>('descripton 1')
+    const [description, setDescription] = useState<string>('description 1')
     const [status, setStatus] = useState<number>(0)
     const [priority, setPriority] = useState<number>(0)
-    const [startDate, setStartDate] = useState<string>('')
-    const [deadline, setDeadline] = useState<string>('')
 
     const [todolistId, setTodolistId] = useState<string>('')
     const [taskId, setTaskId] = useState<string>('')
