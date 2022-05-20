@@ -42,7 +42,6 @@ const initialGlobalState: AppRootStateType = {
         addedDate: "",
         deadline: "",
         description: "",
-        entityStatus: "idle",
         order: 0,
         priority: TaskPriorities.Low,
         startDate: "",
@@ -55,7 +54,6 @@ const initialGlobalState: AppRootStateType = {
         addedDate: "",
         deadline: "",
         description: "",
-        entityStatus: "idle",
         order: 0,
         priority: TaskPriorities.Low,
         startDate: "",
@@ -70,7 +68,6 @@ const initialGlobalState: AppRootStateType = {
         addedDate: "",
         deadline: "",
         description: "",
-        entityStatus: "idle",
         order: 0,
         priority: TaskPriorities.Low,
         startDate: "",
@@ -83,7 +80,6 @@ const initialGlobalState: AppRootStateType = {
         addedDate: "",
         deadline: "",
         description: "",
-        entityStatus: "idle",
         order: 0,
         priority: TaskPriorities.Low,
         startDate: "",
@@ -95,6 +91,10 @@ const initialGlobalState: AppRootStateType = {
   app: {
     error: null,
     status: "idle",
+  },
+  auth: {
+    isLoggedIn: false,
+    isInitialized:false
   },
 };
 
