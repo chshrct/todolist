@@ -1,13 +1,14 @@
 {
-    "cSpell.words": [
-        "Alesha",
-        "blabla",
-        "browserslist",
-        "clickaway",
-        "formik",
-        "Todolist",
-        "Todolists",
-        "Yauheni"
-    ],
-    "typescript.tsdk": "node_modules\\typescript\\lib"
+  "cSpell.words": [
+    "Alesha",
+    "blabla",
+    "browserslist",
+    "clickaway",
+    "formik",
+    "reduxjs",
+    "Todolist",
+    "Todolists",
+    "Yauheni"
+  ],
+  "typescript.tsdk": "node_modules\\typescript\\lib"
 }

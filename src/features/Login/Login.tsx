@@ -64,6 +64,7 @@ export const Login = () => {
                 <a
                   href={"https://social-network.samuraijs.com/"}
                   target={"_blank"}
+                  rel="noreferrer"
                 >
                   {" "}
                   here
