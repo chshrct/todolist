@@ -25,7 +25,9 @@ type PropsType = {
 function App({ demo = false }: PropsType) {
   const dispatch = useAppDispatch();
   useEffect(() => {
-    dispatch(initializeAppTC());
+    if (!demo) {
+      dispatch(initializeAppTC());
+    }
   }, [dispatch]);
   const status = useSelector<AppRootStateType, RequestStatusType>(
     (state) => state.app.status
@@ -73,7 +75,10 @@ function App({ demo = false }: PropsType) {
         </AppBar>
         <Container fixed>
           <Routes>
-            <Route path="*" element={<Navigate to="404" />} />
+            <Route
+              path="*"
+              element={<Navigate to={demo ? "login" : "404"} />}
+            />
             <Route path="404" element={<h1>404: PAGE NOT FOUND</h1>} />
             <Route path="/" element={<TodolistsList demo={demo} />} />
             <Route path="login" element={<Login />} />

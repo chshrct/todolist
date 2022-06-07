@@ -6,15 +6,11 @@ import { ReduxStoreProviderDecorator } from "./decorators/ReduxStoreProviderDeco
 export default {
   title: "Todolist/App",
   component: App,
-  argTypes: {
-  },
-  decorators:[ReduxStoreProviderDecorator]
+  argTypes: {},
+  decorators: [ReduxStoreProviderDecorator],
 } as Meta<typeof App>;
 
-const Template: Story = (args) => (
-  <App {...args} demo={true}/>
-);
+const Template: Story = (args) => <App {...args} demo={true} />;
 
 export const AppExample = Template.bind({});
-AppExample.args = {
-};
+AppExample.args = {};
