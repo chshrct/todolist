@@ -4,13 +4,11 @@ const instance = axios.create({
   baseURL: "https://social-network.samuraijs.com/api/1.1/",
   withCredentials: true,
   headers: {
-    "API-KEY": "45504c5e-aecb-4772-971c-a14a04809005",
+    "API-KEY": process.env.REACT_APP_API_KEY as string,
   },
 });
 
 // api
-
-
 
 export const authAPI = {
   login(data: LoginParamsType) {
@@ -19,11 +17,13 @@ export const authAPI = {
       AxiosResponse<ResponseType<{ userId: number }>>
     >("auth/login", data);
   },
-  logout(){
-    return instance.delete<ResponseType>("auth/login")
+  logout() {
+    return instance.delete<ResponseType>("auth/login");
   },
   me() {
-    return instance.get<ResponseType<{id:number,email:string,login:string}>>('auth/me')
+    return instance.get<
+      ResponseType<{ id: number; email: string; login: string }>
+    >("auth/me");
   },
 };
 
