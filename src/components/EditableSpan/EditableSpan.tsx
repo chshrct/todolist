@@ -1,24 +1,25 @@
-import React, { ChangeEvent, useState } from "react";
-import TextField from "@mui/material/TextField";
+import React, { ChangeEvent, useState } from 'react';
+
+import TextField from '@mui/material/TextField';
 
 export type EditableSpanPropsType = {
   value: string;
   onChange: (newValue: string) => void;
 };
 
-export const EditableSpan = React.memo(function (props: EditableSpanPropsType) {
-  let [editMode, setEditMode] = useState(false);
-  let [title, setTitle] = useState(props.value);
+export const EditableSpan = React.memo((props: EditableSpanPropsType) => {
+  const [editMode, setEditMode] = useState(false);
+  const [title, setTitle] = useState(props.value);
 
-  const activateEditMode = () => {
+  const activateEditMode = (): void => {
     setEditMode(true);
     setTitle(props.value);
   };
-  const activateViewMode = () => {
+  const activateViewMode = (): void => {
     setEditMode(false);
     props.onChange(title);
   };
-  const changeTitle = (e: ChangeEvent<HTMLInputElement>) => {
+  const changeTitle = (e: ChangeEvent<HTMLInputElement>): void => {
     setTitle(e.currentTarget.value);
   };
 
@@ -31,7 +32,7 @@ export const EditableSpan = React.memo(function (props: EditableSpanPropsType) {
       size="small"
     />
   ) : (
-    <span onDoubleClick={activateEditMode} style={{ marginBottom: "2px" }}>
+    <span onDoubleClick={activateEditMode} style={{ marginBottom: '2px' }}>
       {props.value}
     </span>
   );
