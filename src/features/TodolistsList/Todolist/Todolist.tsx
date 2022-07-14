@@ -8,7 +8,7 @@ import { TaskStatuses, TaskType } from '../../../api/todolists-api';
 import { useAppDispatch } from '../../../app/store';
 import { AddItemForm } from '../../../components/AddItemForm/AddItemForm';
 import { EditableSpan } from '../../../components/EditableSpan/EditableSpan';
-import { fetchTasksTC } from '../tasks-reducer';
+import { fetchTasks } from '../tasks-reducer';
 import { FilterValuesType, TodolistDomainType } from '../todolists-reducer';
 
 import { Task } from './Task/Task';
@@ -42,7 +42,7 @@ export const Todolist = React.memo(
       if (demo) {
         return;
       }
-      const thunk = fetchTasksTC(todolist.id);
+      const thunk = fetchTasks(todolist.id);
 
       dispatch(thunk);
     }, [demo, todolist.id, dispatch]);

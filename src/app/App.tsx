@@ -10,11 +10,11 @@ import { useSelector } from 'react-redux';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 import { ErrorSnackbar } from '../components/ErrorSnackbar/ErrorSnackbar';
-import { initializeAppTC, logoutTC } from '../features/Login/auth-reducer';
+import { logout } from '../features/Login/auth-reducer';
 import { Login } from '../features/Login/Login';
 import { TodolistsList } from '../features/TodolistsList/TodolistsList';
 
-import { RequestStatusType } from './app-reducer';
+import { initializeApp, RequestStatusType } from './app-reducer';
 import './App.css';
 import { AppRootStateType, useAppDispatch } from './store';
 
@@ -27,14 +27,14 @@ const App: FC<PropsType> = ({ demo = false }) => {
 
   useEffect(() => {
     if (!demo) {
-      dispatch(initializeAppTC());
+      dispatch(initializeApp());
     }
   }, [demo, dispatch]);
   const status = useSelector<AppRootStateType, RequestStatusType>(
     state => state.app.status,
   );
   const isInitialized = useSelector<AppRootStateType, boolean>(
-    state => state.auth.isInitialized,
+    state => state.app.isInitialized,
   );
   const isLoggedIn = useSelector<AppRootStateType, boolean>(
     state => state.auth.isLoggedIn,
@@ -55,7 +55,9 @@ const App: FC<PropsType> = ({ demo = false }) => {
     );
   }
 
-  const logoutHandler = (): void => dispatch(logoutTC());
+  const logoutHandler = (): void => {
+    dispatch(logout());
+  };
 
   return (
     <BrowserRouter>

@@ -94,10 +94,10 @@ const initialGlobalState: AppRootStateType = {
   app: {
     error: null,
     status: 'succeeded',
+    isInitialized: true,
   },
   auth: {
     isLoggedIn: true,
-    isInitialized: true,
   },
 };
 

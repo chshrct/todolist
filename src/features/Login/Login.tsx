@@ -14,7 +14,7 @@ import { Navigate } from 'react-router-dom';
 
 import { AppRootStateType, useAppDispatch } from '../../app/store';
 
-import { loginTC } from './auth-reducer';
+import { login } from './auth-reducer';
 
 type FormikErrorType = {
   email?: string;
@@ -53,7 +53,7 @@ export const Login: FC = () => {
     },
 
     onSubmit: values => {
-      dispatch(loginTC(values));
+      dispatch(login(values));
       formik.resetForm();
     },
   });
